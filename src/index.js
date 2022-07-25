@@ -5,7 +5,7 @@ import "./index.css";
 function Square(props) {
   return (
     <button className="square" onClick={props.onClick}>
-      {props.value}
+      <span className={props.value === "X" ? "X" : "O"}>{props.value}</span>
     </button>
   );
 }
@@ -75,6 +75,7 @@ class Game extends React.Component {
       xIsNext: !this.state.xIsNext,
     });
   }
+
   jumpTo(step) {
     this.setState({
       stepNumber: step,
@@ -97,7 +98,7 @@ class Game extends React.Component {
     });
     let status;
     if (winner) {
-      status = "GGWP, Winner:" + winner;
+      status = "GGWP, Winner : " + winner;
     } else {
       status = "Next player:" + (this.state.xIsNext ? "X" : "O");
     }
@@ -133,6 +134,7 @@ function calculateWinner(squares) {
   for (let i = 0; i < lines.length; i++) {
     const [a, b, c] = lines[i];
     if (squares[a] && squares[a] === squares[b] && squares[a] === squares[c]) {
+      console.log(squares[a]);
       return squares[a];
     }
   }

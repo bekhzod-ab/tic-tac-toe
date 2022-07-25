@@ -33,6 +33,16 @@ ul {
   width: 34px;
 }
 
+.X {
+  color: rgb(7, 196, 7);
+  font-family: "Indie Flower", cursive;
+}
+
+.O {
+  color: rgb(232, 5, 5);
+  font-family: "Indie Flower", cursive;
+}
+
 .square:focus {
   outline: none;
 }
